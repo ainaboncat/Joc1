@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Joc1/Joc1.gd" type="Script" id=1]
+[ext_resource path="res://Joc1/Personatge1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Joc1/oculi.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shogun.gd" type="Script" id=4]
+[ext_resource path="res://Joc1/Paret.tscn" type="PackedScene" id=5]
+[ext_resource path="res://shogun.tscn" type="PackedScene" id=6]
+
+[node name="Joc1" type="Node2D"]
+position = Vector2( -1, 1 )
+script = ExtResource( 1 )
+
+[node name="Personatge1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 50, 508 )
+
+[node name="Paret" parent="." instance=ExtResource( 5 )]
+position = Vector2( 120, 578 )
+
+[node name="Paret2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 379, 460 )
+
+[node name="oculi" parent="." instance=ExtResource( 3 )]
+position = Vector2( 173, 461 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 908.0
+margin_top = 24.0
+margin_right = 987.0
+margin_bottom = 63.0
+
+[node name="shogun" parent="." instance=ExtResource( 6 )]
+script = ExtResource( 4 )
+
+[connection signal="body_entered" from="oculi" to="." method="_on_oculi_body_entered"]

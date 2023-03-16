@@ -1,9 +1,7 @@
 extends Area2D
 
-
 func _ready():
-	$ColorRect.color = Color(1,1,0)
-
+	$ColorRect.color = Color(0.85,0,1)
 
 func _on_oculi_body_entered(body):
 	queue_free()

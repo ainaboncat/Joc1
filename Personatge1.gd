@@ -8,12 +8,11 @@ var direccio := Vector2.ZERO
 var vides := 5
 
 func _ready():
-	position = Vector2(0,0)
 	rotation_degrees = 0
 
 func _process(delta):
-	moviment.x = 0
-	direccio.x = 0
+	moviment = Vector2.ZERO
+	direccio = Vector2.ZERO
 
 #	moviment += gravetat * delta
 	if Input.is_action_pressed("ves_esquerra"):
@@ -22,7 +21,7 @@ func _process(delta):
 		direccio += Vector2.RIGHT
 	if Input.is_action_pressed("ves_dalt"):
 		direccio += Vector2.UP
-	if Input.is_action_just_pressed("ves_baix"):
+	if Input.is_action_pressed("ves_baix"):
 		direccio += Vector2.DOWN
 	
 	moviment += direccio.normalized() * velocitat
